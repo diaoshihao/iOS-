@@ -1,0 +1,341 @@
+{\rtf1\ansi\ansicpg936\cocoartf1404\cocoasubrtf460
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fnil\fcharset134 STHeitiSC-Light;\f2\fnil\fcharset0 Menlo-Regular;
+}
+{\colortbl;\red255\green255\blue255;\red100\green100\blue133;\red223\green7\blue0;\red41\green66\blue119;
+\red180\green69\blue0;\red195\green116\blue28;\red71\green106\blue151;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww14880\viewh9860\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 \
+
+\f1 \'d7\'a2\'d2\'e2\'a3\'a1\'a3\'a1\'a3\'a1\'a3\'a1\'a3\'a1\'a3\'a1\'a3\'a1\'a3\'a1\'a3\'a1\'a3\'a1\'a3\'a1\'a3\'a1\'a3\'a1\'a3\'a1
+\f0 \
+\
+xCode
+\f1 \'b9\'a4\'b3\'cc\'c3\'fb\'d7\'d6\'b2\'bb\'c4\'dc\'d3\'c3
+\f0 Alipay,
+\f1 \'b7\'f1\'d4\'f2\'b2\'bb\'c4\'dc\'b9\'bb\'b3\'c9\'b9\'a6\'cc\'f8\'d7\'aa\'b5\'bd\'d6\'a7\'b8\'b6\'b1\'a6\'bd\'e7\'c3\'e6\'a3\'a1
+\f0 \
+\
+\
+1.
+\f1 \'d0\'e8\'d2\'aa\'b2\'ce\'bf\'bc
+\f0 demo
+\f1 \'d2\'fd\'c8\'eb\'b5\'c4\'ce\'c4\'bc\'fe\'d3\'d0\'a3\'ba
+\f0 \
+   AlipaySDK.bundle\
+\
+  AlipaySDK.framework\
+\
+  libcrypto.a\
+\
+ libssl.a\
+\
+ AliSDKDemo-Prefix.pch\
+\
+ Util   
+\f1 \'ce\'c4\'bc\'fe\'bc\'d0
+\f0 \
+\
+ openssl 
+\f1 \'ce\'c4\'bc\'fe\'bc\'d0
+\f0 \
+\
+Order.h\
+Order.m\
+\
+UIKit.framework\
+\
+CoreGraphics.framework\
+\
+Foundation.framework\
+\
+CoreTelephony.framework\
+\
+CoreText.framework\
+\
+libz.dylib\
+\
+QuartzCore.framework\
+\
+SystemConfiguration.framework\
+\
+2.
+\f1 \'c5\'e4\'d6\'c3
+\f0 prefix
+\f1 \'a3\'ac\'c8\'e7\'b9\'fb\'d6\'ae\'c7\'b0\'d7\'d4\'bc\'ba\'b5\'c4\'cf\'ee\'c4\'bf\'b9\'a4\'b3\'cc\'d3\'d0
+\f0 prefixe
+\f1 \'a3\'ac\'d4\'f2\'d4\'da\'c6\'e4\'d6\'d0\'d2\'fd\'c8\'eb #import<UIKit/UIKit.h>,#import<Foundation/Foundation.h>
+\f0    \
+
+\f1 \'c8\'e7\'b9\'fb\'c3\'bb\'d3\'d0
+\f0 prefix
+\f1 \'d4\'f2\'d6\'b1\'bd\'d3\'cd\'cf\'d7\'a7\'d6\'a7\'b8\'b6\'b1\'a6
+\f0 demo
+\f1 \'b5\'c4
+\f0 prefix
+\f1 \'b5\'bd\'cf\'ee\'c4\'bf\'b8\'f9\'c4\'bf\'c2\'bc\'cf\'c2\'a3\'ac\'c5\'e4\'d6\'c3
+\f0 prefix
+\f1 \'c2\'b7\'be\'b6
+\f0 \
+\
+\
+\
+3.
+\f1 \'c5\'e4\'d6\'c3
+\f0 openssl
+\f1 \'cd\'b7\'ce\'c4\'bc\'fe\'c2\'b7\'be\'b6\'a3\'ac\'d4\'da
+\f0 header search paths 
+\f1 \'d6\'d0\'cc\'ed\'bc\'d3\'a3\'ba
+\f0 openssl 
+\f1 \'b5\'c4\'c2\'b7\'be\'b6
+\f0 \
+\
+4.
+\f1 \'d3\'a6\'d3\'c3\'d7\'a2\'b2\'e1
+\f0 scheme 
+\f1 \'d4\'da
+\f0  plist 
+\f1 \'b6\'a8\'d2\'e5
+\f0 URL Types ,NSString *appScheme = @\'93alipaytest\'94;\
+	\
+5.
+\f1 \'d4\'da
+\f0 appdelegate
+\f1 \'d6\'d0\'d2\'fd\'c8\'eb\'a3\'ba\
+
+\f2\fs36 \cf2 \CocoaLigature0 #import \cf3 <AlipaySDK/AlipaySDK.h>\
+
+\f1 \'b2\'a2\'c7\'d2\'cc\'ed\'bc\'d3\'c8\'e7\'cf\'c2\'b4\'fa\'c2\'eb\'a3\'ba
+\f2 \
+\pard\tx866\pardeftab866\pardirnatural\partightenfactor0
+\cf0 - (\cf4 BOOL\cf0 )application:(\cf5 UIApplication\cf0  *)application\
+            openURL:(\cf5 NSURL\cf0  *)url\
+  sourceApplication:(\cf5 NSString\cf0  *)sourceApplication\
+         annotation:(\cf4 id\cf0 )annotation \{\
+    \
+    \cf6 //
+\f1 \'cc\'f8\'d7\'aa\'d6\'a7\'b8\'b6\'b1\'a6\'c7\'ae\'b0\'fc\'bd\'f8\'d0\'d0\'d6\'a7\'b8\'b6\'a3\'ac\'b4\'a6\'c0\'ed\'d6\'a7\'b8\'b6\'bd\'e1\'b9\'fb
+\f2 \cf0 \
+    [[\cf5 AlipaySDK\cf0  \cf7 defaultService\cf0 ] \cf7 processOrderWithPaymentResult\cf0 :url \cf7 standbyCallback\cf0 :^(\cf5 NSDictionary\cf0  *resultDic) \{\
+        \cf7 NSLog\cf0 (\cf3 @"result = %@"\cf0 ,resultDic);\
+    \}];\
+    \
+    \cf4 return\cf0  \cf4 YES\cf0 ;\
+\}\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 \CocoaLigature1 6.
+\f1 \'d4\'da\'d0\'e8\'d2\'aa\'ca\'b5\'cf\'d6\'d6\'a7\'b8\'b6\'b5\'c4\'bd\'e7\'c3\'e6\'b5\'bc\'c8\'eb\'a3\'ba  
+\f2\fs36 \cf2 \CocoaLigature0 #import \cf3 "Order.h"\cf2 \
+\pard\tx866\pardeftab866\pardirnatural\partightenfactor0
+\cf2                 #import \cf3 "DataSigner.h"\cf2 \
+                #import \cf3 <AlipaySDK/AlipaySDK.h>\
+
+\f0\fs24 \cf0 \CocoaLigature1 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 7.
+\f1 \'bf\'bd\'b1\'b4\'cf\'c2\'b2\'e2\'ca\'d4\'d3\'c3\'b5\'c4\'cb\'e6\'bb\'fa\'c9\'fa\'b3\'c9\'b2\'e2\'ca\'d4\'b6\'a9\'b5\'a5\'ba\'c5\'b7\'bd\'b7\'a8\'a3\'ba
+\f0 \
+\pard\tx866\pardeftab866\pardirnatural\partightenfactor0
+
+\f2\fs36 \cf0 \CocoaLigature0 - (\cf5 NSString\cf0  *)generateTradeNO\
+\{\
+    \cf4 static\cf0  \cf4 int\cf0  kNumber = \cf4 15\cf0 ;\
+    \
+    \cf5 NSString\cf0  *sourceStr = \cf3 @"0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ"\cf0 ;\
+    \cf5 NSMutableString\cf0  *resultStr = [[\cf5 NSMutableString\cf0  \cf7 alloc\cf0 ] \cf7 init\cf0 ];\
+    \cf7 srand\cf0 (\cf7 time\cf0 (\cf4 0\cf0 ));\
+    \cf4 for\cf0  (\cf4 int\cf0  i = \cf4 0\cf0 ; i < kNumber; i++)\
+    \{\
+        \cf4 unsigned\cf0  index = \cf7 rand\cf0 () % [sourceStr \cf7 length\cf0 ];\
+        \cf5 NSString\cf0  *oneStr = [sourceStr \cf7 substringWithRange\cf0 :\cf7 NSMakeRange\cf0 (index, \cf4 1\cf0 )];\
+        [resultStr \cf7 appendString\cf0 :oneStr];\
+    \}\
+    \cf4 return\cf0  resultStr;\
+\}\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 \CocoaLigature1 \
+8.
+\f1 \'d4\'da\'b5\'e3\'bb\'f7\'d6\'a7\'b8\'b6\'b7\'bd\'b7\'a8\'d6\'d0\'bf\'bd\'b1\'b4\'c8\'e7\'cf\'c2\'b4\'fa\'c2\'eb\'a3\'ba
+\f0 \
+\
+\pard\tx866\pardeftab866\pardirnatural\partightenfactor0
+
+\f2\fs36 \cf0 \CocoaLigature0 - (\cf4 IBAction\cf0 )click:(\cf4 id\cf0 )sender \{\
+        \cf6 /*\
+         *
+\f1 \'c9\'cc\'bb\'a7\'b5\'c4\'ce\'a8\'d2\'bb\'b5\'c4
+\f2 parnter
+\f1 \'ba\'cd
+\f2 seller
+\f1 \'a1\'a3
+\f2 \
+         *
+\f1 \'c7\'a9\'d4\'bc\'ba\'f3\'a3\'ac\'d6\'a7\'b8\'b6\'b1\'a6\'bb\'e1\'ce\'aa\'c3\'bf\'b8\'f6\'c9\'cc\'bb\'a7\'b7\'d6\'c5\'e4\'d2\'bb\'b8\'f6\'ce\'a8\'d2\'bb\'b5\'c4
+\f2  parnter 
+\f1 \'ba\'cd
+\f2  seller
+\f1 \'a1\'a3
+\f2 \
+         */\cf0 \
+        \
+        \cf6 /*============================================================================*/\cf0 \
+        \cf6 /*=======================
+\f1 \'d0\'e8\'d2\'aa\'cc\'ee\'d0\'b4\'c9\'cc\'bb\'a7
+\f2 app
+\f1 \'c9\'ea\'c7\'eb\'b5\'c4
+\f2 ===================================*/\cf0 \
+        \cf6 /*============================================================================*/\cf0 \
+        \cf5 NSString\cf0  *partner = \cf3 @"2088801142678498"\cf0 ;\cf6 //
+\f1 \'ba\'cf\'d7\'f7\'c9\'cc\'bb\'a7\'d5\'cb\'ba\'c5
+\f2 \cf0 \
+        \cf5 NSString\cf0  *seller = \cf3 @"lisa@newv.com.cn"\cf0 ;\cf6 //
+\f1 \'d6\'a7\'b8\'b6\'b1\'a6\'ca\'d5\'bf\'ee\'d5\'cb\'ba\'c5
+\f2 \cf0 \
+        \cf5 NSString\cf0  *privateKey = \cf3 @"MIICdgIBADANBgkqhkiG9w0BAQEFAASCAmAwggJcAgEAAoGBAKADO4HcskWfaWCSLSdCqPMWymC2m3paALX6jVjpz/eIFajO/hbOec1IZB8yLImClKTyke9kGy2IwVSt1QNugxx/u6lUEoE6LeO2LKR37YnopdgKxXVITX5Ymn0yJdI3WWFiqfcFXzAHq3D5Il9zfTVRyOTHfRTC05EML7F1hV/1AgMBAAECgYBeUKlxqQk3OngdYOvWeVcmOae+C8RnAMfse6t23hIkAAVsQ93GyZtHocTKEoPn5Z0CAKx+I05Vr4btB61H4YrLga89mbXjP+YoYejNRVoZBjEpkf7NgMh7ScQIhx3hHk2IuCO6syz/cR5zNWpK47gMSWtS3/xoWjX9aicKcsTNgQJBANQd3qZZeo1XTi4qugp8AAvCwsy4IGM1LztahKIll+XMTLHxF6e5WTEQTuRe6fQzfbP7emNX3aAwqLRhgez+hmECQQDBHdOGsuqGQkes1VO9C9zEOegjEgv+Dzxq3Wj8AeVzO4idUJ2Gl6IV4EWflev9kZGX6CXFjJ3RngM6dsoejpoVAkEAj36Rc7mOhXVtZx/ycUtHgK1FuNZK2rJM/HsUxNhntMaLj8kIdqeVpfJhXG61GEWJISvbtL7pKAgi6LwZ9+iLoQJAWO5HTqxt284B+9FxcolX7PVNtXjGFQUnKX80rXiiFWLBEtDg+e4yMijJZyg/ONIkXfQGEOckdjdx/SZfBZtd0QJAPL0+YBO5Bvbb4/VRIeoww+4pAd46f9Ews0a0gYjOrTL+tNomvVet92HgJJQIEIoLbqh4NTDJDFgC8rmh7UBeSg=="\cf0 ;\cf6 //
+\f1 \'cb\'bd\'d4\'bf
+\f2 ,\cf0 \
+        \cf6 /*============================================================================*/\cf0 \
+        \cf6 /*============================================================================*/\cf0 \
+        \cf6 /*============================================================================*/\cf0 \
+        \
+        \cf6 //partner
+\f1 \'ba\'cd
+\f2 seller
+\f1 \'bb\'f1\'c8\'a1\'ca\'a7\'b0\'dc
+\f2 ,
+\f1 \'cc\'e1\'ca\'be
+\f2 \cf0 \
+        \cf4 if\cf0  ([partner \cf7 length\cf0 ] == \cf4 0\cf0  ||\
+            [seller \cf7 length\cf0 ] == \cf4 0\cf0  ||\
+            [privateKey \cf7 length\cf0 ] == \cf4 0\cf0 )\
+        \{\
+            \cf5 UIAlertView\cf0  *alert = [[\cf5 UIAlertView\cf0  \cf7 alloc\cf0 ] \cf7 initWithTitle\cf0 :\cf3 @"
+\f1 \'cc\'e1\'ca\'be
+\f2 "\cf0 \
+                                                            \cf7 message\cf0 :\cf3 @"
+\f1 \'c8\'b1\'c9\'d9
+\f2 partner
+\f1 \'bb\'f2\'d5\'df
+\f2 seller
+\f1 \'bb\'f2\'d5\'df\'cb\'bd\'d4\'bf\'a1\'a3
+\f2 "\cf0 \
+                                                           \cf7 delegate\cf0 :\cf4 self\cf0 \
+                                                  \cf7 cancelButtonTitle\cf0 :\cf3 @"
+\f1 \'c8\'b7\'b6\'a8
+\f2 "\cf0 \
+                                                  \cf7 otherButtonTitles\cf0 :\cf4 nil\cf0 ];\
+            [alert \cf7 show\cf0 ];\
+            \cf4 return\cf0 ;\
+        \}\
+        \
+        \cf6 /*\
+         *
+\f1 \'c9\'fa\'b3\'c9\'b6\'a9\'b5\'a5\'d0\'c5\'cf\'a2\'bc\'b0\'c7\'a9\'c3\'fb
+\f2 \
+         */\cf0 \
+        \cf6 //
+\f1 \'bd\'ab\'c9\'cc\'c6\'b7\'d0\'c5\'cf\'a2\'b8\'b3\'d3\'e8
+\f2 AlixPayOrder
+\f1 \'b5\'c4\'b3\'c9\'d4\'b1\'b1\'e4\'c1\'bf
+\f2 \cf0 \
+        \cf5 Order\cf0  *order = [[\cf5 Order\cf0  \cf7 alloc\cf0 ] \cf7 init\cf0 ];\
+        order.\cf7 partner\cf0  = partner;\
+        order.\cf7 seller\cf0  = seller;\
+        order.\cf7 tradeNO\cf0  = [\cf4 self\cf0  \cf7 generateTradeNO\cf0 ]; \cf6 //
+\f1 \'b6\'a9\'b5\'a5
+\f2 ID
+\f1 \'a3\'a8\'d3\'c9\'c9\'cc\'bc\'d2\'d7\'d4\'d0\'d0\'d6\'c6\'b6\'a8\'a3\'a9
+\f2 \cf0 \
+        order.\cf7 productName\cf0  =\cf3 @"82
+\f1 \'c4\'ea\'b5\'c4\'c3\'a9\'cc\'a8
+\f2 "\cf0 ; \cf6 //
+\f1 \'c9\'cc\'c6\'b7\'b1\'ea\'cc\'e2
+\f2 \cf0 \
+        order.\cf7 productDescription\cf0  = \cf3 @"
+\f1 \'bf\'da\'b8\'d0\'cf\'e3\'b4\'bc
+\f2 "\cf0 ; \cf6 //
+\f1 \'c9\'cc\'c6\'b7\'c3\'e8\'ca\'f6
+\f2 \cf0 \
+        order.\cf7 amount\cf0  = [\cf5 NSString\cf0  \cf7 stringWithFormat\cf0 :\cf3 @"%.2f"\cf0 ,\cf4 0.01\cf0 ]; \cf6 //
+\f1 \'c9\'cc\'c6\'b7\'bc\'db\'b8\'f1
+\f2 \cf0 \
+        order.\cf7 notifyURL\cf0  =  \cf3 @"http://www.xxx.com"\cf0 ; \cf6 //
+\f1 \'bb\'d8\'b5\'f7
+\f2 URL,
+\f1 \'d6\'a7\'b8\'b6\'b1\'a6\'b0\'d1\'d6\'a7\'b8\'b6\'d0\'c5\'cf\'a2\'bb\'d8\'b5\'f7\'b8\'f8\'b7\'fe\'ce\'f1\'c6\'f7\'b5\'c4
+\f2 \cf0 \
+        \cf6 //===========
+\f1 \'d2\'d4\'cf\'c2\'d0\'c5\'cf\'a2\'be\'a1\'c1\'bf\'b2\'bb\'b8\'c4
+\f2 \cf0 \
+        order.\cf7 service\cf0  = \cf3 @"mobile.securitypay.pay"\cf0 ;\
+        order.\cf7 paymentType\cf0  = \cf3 @"1"\cf0 ;\
+        order.\cf7 inputCharset\cf0  = \cf3 @"utf-8"\cf0 ;\
+        order.\cf7 itBPay\cf0  = \cf3 @"30m"\cf0 ;\
+        order.\cf7 showUrl\cf0  = \cf3 @"m.alipay.com"\cf0 ;\
+        \
+        \cf6 //
+\f1 \'d3\'a6\'d3\'c3\'d7\'a2\'b2\'e1
+\f2 scheme,
+\f1 \'d4\'da
+\f2 AlixPayDemo-Info.plist
+\f1 \'b6\'a8\'d2\'e5
+\f2 URL types\cf0 \
+        \cf5 NSString\cf0  *appScheme = \cf3 @"AlipayDemo_1"\cf0 ;\
+        \
+        \cf6 //
+\f1 \'bd\'ab\'c9\'cc\'c6\'b7\'d0\'c5\'cf\'a2\'c6\'b4\'bd\'d3\'b3\'c9\'d7\'d6\'b7\'fb\'b4\'ae
+\f2 \cf0 \
+        \cf5 NSString\cf0  *orderSpec = [order \cf7 description\cf0 ];\
+        \cf7 NSLog\cf0 (\cf3 @"orderSpec = %@"\cf0 ,orderSpec);\
+        \
+        \cf6 //
+\f1 \'bb\'f1\'c8\'a1\'cb\'bd\'d4\'bf\'b2\'a2\'bd\'ab\'c9\'cc\'bb\'a7\'d0\'c5\'cf\'a2\'c7\'a9\'c3\'fb
+\f2 ,
+\f1 \'cd\'e2\'b2\'bf\'c9\'cc\'bb\'a7\'bf\'c9\'d2\'d4\'b8\'f9\'be\'dd\'c7\'e9\'bf\'f6\'b4\'e6\'b7\'c5\'cb\'bd\'d4\'bf\'ba\'cd\'c7\'a9\'c3\'fb
+\f2 ,
+\f1 \'d6\'bb\'d0\'e8\'d2\'aa\'d7\'f1\'d1\'ad
+\f2 RSA
+\f1 \'c7\'a9\'c3\'fb\'b9\'e6\'b7\'b6
+\f2 ,
+\f1 \'b2\'a2\'bd\'ab\'c7\'a9\'c3\'fb\'d7\'d6\'b7\'fb\'b4\'ae
+\f2 base64
+\f1 \'b1\'e0\'c2\'eb\'ba\'cd
+\f2 UrlEncode\cf0 \
+        \cf4 id\cf0 <\cf5 DataSigner\cf0 > signer = \cf7 CreateRSADataSigner\cf0 (privateKey);\
+        \cf5 NSString\cf0  *signedString = [signer \cf7 signString\cf0 :orderSpec];\
+        \
+        \cf6 //
+\f1 \'bd\'ab\'c7\'a9\'c3\'fb\'b3\'c9\'b9\'a6\'d7\'d6\'b7\'fb\'b4\'ae\'b8\'f1\'ca\'bd\'bb\'af\'ce\'aa\'b6\'a9\'b5\'a5\'d7\'d6\'b7\'fb\'b4\'ae
+\f2 ,
+\f1 \'c7\'eb\'d1\'cf\'b8\'f1\'b0\'b4\'d5\'d5\'b8\'c3\'b8\'f1\'ca\'bd
+\f2 \cf0 \
+        \cf5 NSString\cf0  *orderString = \cf4 nil\cf0 ;\
+        \cf4 if\cf0  (signedString != \cf4 nil\cf0 ) \{\
+            orderString = [\cf5 NSString\cf0  \cf7 stringWithFormat\cf0 :\cf3 @"%@&sign=\\"%@\\"&sign_type=\\"%@\\""\cf0 ,\
+                           orderSpec, signedString, \cf3 @"RSA"\cf0 ];\
+            \
+            [[\cf5 AlipaySDK\cf0  \cf7 defaultService\cf0 ] \cf7 payOrder\cf0 :orderString \cf7 fromScheme\cf0 :appScheme \cf7 callback\cf0 :^(\cf5 NSDictionary\cf0  *resultDic) \{\
+                \cf7 NSLog\cf0 (\cf3 @"reslut = %@"\cf0 ,resultDic);\
+            \}];\
+            \
+            \
+        \}\
+    \
+\}
+\f0\fs24 \CocoaLigature1 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 \
+\
+\
+\
+\
+\
+//=============
+\f1 \'cf\'e0\'b6\'d4\'c2\'b7\'be\'b6\'b2\'ce\'bf\'bc
+\f0 \
+$(SRCROOT)/AliSDKDemo-Prefix.pch\
+$(SRCROOT)\
+}

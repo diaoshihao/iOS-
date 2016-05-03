@@ -1,0 +1,5 @@
+cocosPods下载第三方库使用
+
+http://www.tuicool.com/articles/7VvuAr3
+
+pod install --verbose --no-repo-update
